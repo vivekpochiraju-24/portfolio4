@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivek Pochiraju - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">VP</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+        </ul>
+        <div class="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Vivek Pochiraju</h1>
+            <p class="subtitle">Full Stack Developer | AI Enthusiast</p>
+            <div class="social-links">
+                <a href="mailto:vivekpochiraju@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/vivek-pochiraju-996b042a9/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3Btyg52ww%2FTP23GiTfWQ3%2BWQ%3D%3D" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/vivekpochiraju-24" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>Education</h2>
+        <div class="education-grid">/* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .education-card {
+            background: var(--bg-secondary);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid transparent;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
+        }
+        
+        .education-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(100, 255, 218, 0.2),
+                transparent
+            );
+            transition: 0.8s;
+        }
+        
+        .education-card:hover::before {
+            left: 100%;
+        }
+        
+        .education-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px -15px rgba(100, 255, 218, 0.3);
+        }
+        
+        .education-card h3 {
+            color: var(--accent);
+            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+            position: relative;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .education-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.4s ease;
+        }
+        
+        .education-card:hover h3::after {
+            width: 100%;
+        }
+        
+        .education-card .institution {
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease forwards;
+            animation-delay: 0.2s;
+        }
+        
+        .education-card .year {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease forwards;
+            animation-delay: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .education-card .year::before {
+            content: '📅';
+            font-size: 1rem;
+        }
+        
+        .education-card .gpa {
+            color: var(--accent);
+            font-size: 1.1rem;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease forwards;
+            animation-delay: 0.4s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .education-card .gpa::before {
+            content: '🏆';
+            font-size: 1rem;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .education-card {
+            animation: cardAppear 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        
+        .education-card:nth-child(1) { animation-delay: 0.1s; }
+        .education-card:nth-child(2) { animation-delay: 0.3s; }
+        .education-card:nth-child(3) { animation-delay: 0.5s; }
+        
+        @keyframes cardAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        /* Add glowing effect on hover */
+        .education-card:hover {
+            background: linear-gradient(
+                45deg,
+                var(--bg-secondary),
+                rgba(100, 255, 218, 0.1),
+                var(--bg-secondary)
+            );
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        /* Section title animation */
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+        
+        .section-title:hover::after {
+            transform: scaleX(1);
+        }
+        
+        @media screen and (max-width: 768px) {
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .education-card {
+                padding: 2rem;
+            }
+        }
+            <div class="education-card">
+                <h3>B.Tech in Computer Science</h3>
+                <p class="institution">Swarnandhra college  of Engineering & Technology</p>
+                <p class="year">2022 - 2026</p>
+                <p class="gpa">CGPA: 9.43/10</p>
+            </div>
+            <div class="education-card">
+                <h3>Intermediate (MPC)</h3>
+                <p class="institution">Sasi Junior College</p>
+                <p class="year">2020 - 2022</p>
+                <p class="gpa">GPA: 9.4/10</p>
+            </div>
+            <div class="education-card">
+                <h3>SSC</h3>
+                <p class="institution">M.V.R Montessori School</p>
+                <p class="year">2019-2020</p>
+                <p class="gpa">GPA: 10/10</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Frontend Development</h3>
+                <div class="skill-items">
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                    <span>React.js</span>
+                    <span>Bootstrap</span>
+                    <span>Tailwind CSS</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Backend Development</h3>
+                <div class="skill-items">
+                    <span>Node.js</span>
+                    <span>MongoDB</span>
+                    <span>MySQL</span>
+                    <span>RESTful APIs</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Programming Languages</h3>
+                <div class="skill-items">
+                    <span>Python</span>
+                    <span>Java</span>
+                    <span>C</span>
+                    <span>JavaScript</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Tools & Technologies</h3>
+                <div class="skill-items">
+                    <span>Git</span>
+                    <span>GitHub</span>
+                    <span>VS Code</span>
+                    <span>AWS</span>
+                    <span>Tensor flow</span>
+                    <span>Node.js</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Soft Skills</h3>
+                <div class="skill-items">
+                    <span>Team Leadership</span>
+                    <span>Problem Solving</span>
+                    <span>Communication</span>
+                    <span>Time Management</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Responsive Landing Page Navigation</h3>
+                <p>Created a user-centric interactive navigation using HTML, CSS, and JavaScript</p>
+                <div class="project-links">
+                    <a href="#" class="btn">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>Stock Market Prediction</h3>
+                <p>Implemented ML model using predictive algorithms for market analysis</p>
+                <div class="project-links">
+                    <a href="#" class="btn">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <h2>Work Experience</h2>
+        <div class="experience-timeline">
+            <div class="exp-item">
+                <h3>Intern - Artificial Intelligence</h3>
+                <p class="company">TechnoSoft</p>
+                <p>Worked on AI/ML projects focusing on Image Development and NLP Techniques</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Vivek Pochiraju. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
